@@ -1,0 +1,59 @@
+<html>
+    <head>
+        
+        <script>
+            let x = "hello"
+            function prob(x){
+                return x.toUpperCase();
+
+            }
+            // console.log(prob("hello"));
+            function calculateSum() {
+               let x = [2, 3, 4, 5, 6];
+               let sum = 0;
+               for (let i = 0; i < x.length; i++) {
+                sum = sum + x[i];
+               }
+               return sum;
+            }
+
+            // console.log(calculateSum());
+            function multiple(num){
+                const mularray = [];
+                let i =1;
+                while(i <= 5){
+                    mularray.push(i*num)
+                    i++;
+                }
+                return mularray;
+            }
+            console.log(multiple(2));
+            let y  = {len: 2, breadth: 3};
+            function rectangle(obj){
+                let perimeter = 2*(obj.len + obj.breadth);
+                let area = obj.len*obj.breadth
+                return {area,perimeter}
+            }
+            console.log(rectangle(y))
+            
+            function f1(){
+                let x= document.getElementById("multi");
+                let y = document.getElementById("result");
+                y.innerHTML = multiple(x.value);
+            }
+    
+            
+
+
+
+        </script>
+
+    </head>
+    <body>
+        <input type="text" id="multi" >
+        <button onclick="f1()">click</button>
+        <span id="result"></span>
+        
+
+    </body>
+</html>

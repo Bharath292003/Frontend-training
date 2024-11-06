@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Search Options</h1>
+    <table>
+        <tr>
+            <td>Employee id*</td>
+            <td><input type="text" id="Empid" required></td>
+        </tr>
+        <tr>
+            <td>First name*</td>
+            <td><input type="text" id="Firstname" required> (use * for wild card search)</td>
+        </tr>
+        <tr>
+            <td>Last name*</td>
+            <td><input type="text" id="Lastname" required> (use * for wild card search)</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>
+                <input type="text"> (mm/dd/yy)
+            </td>
+            <td><select name="dob" id="dob">
+                <option value="=">=</option>
+            </select></td>
+            
+        </tr>
+        <tr>
+            <td>Date of Joining</td>
+            <td>
+                <input type="text"> (mm/dd/yy)
+            </td>
+            <td><select name="doj" id="doj">
+                <option value="=">=</option>
+            </select></td>
+            
+        </tr>
+        <tr>
+            <td>Grade</td>
+            <td><select name="equal" id="equal">
+                <option value="=">=</option>
+            </select></td>
+            <td><select name="grade" id="grade">
+                <option value="=">M1</option>
+                <option value="=">M2</option>
+                <option value="=">M3</option>
+            </select></td>
+        </tr>
+    </table>
+    <h5>*At least one of the fields should be selected</h5><br>
+    <a href="SearchResults.html">Search</a>
+    
+</body>
+</html>
