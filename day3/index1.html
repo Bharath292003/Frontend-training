@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script>
+            function Getlenbre(){
+                const Alen = document.getElementById("len").value;
+                const Abreadth = document.getElementById("bre").value;
+                return {length: Alen.value, breadth: breadth.value};
+            }
+            function SetDisplay(result){
+                let output = document.getElementById("ans");
+                output.innerHTML = result;
+
+            }
+            function CalculateArea(l,b){
+                return l*b;
+            }
+            function area(){
+                const rect = Getlenbre(); 
+                const area = CalculateArea(rect.length,rect.breadth);
+                let result = "Area is " + area;
+                SetDisplay(result);
+            }
+            function CalculatePerimeter(l,b){
+                return 2*(parseInt(l) + parseInt(b));
+            }
+            function perimeter(){
+                let Plen = document.getElementById("len").value;
+                let Pbreadth = document.getElementById("bre").value;
+                let perimeter = document.getElementById("peri-ans");
+                perimeter.innerHTML = CalculatePerimeter(Plen,Pbreadth);
+            }
+            function rectangle(obj){
+                let perimeter = 2*(obj.len + obj.breadth);
+                let area = obj.len*obj.breadth
+                return {area,perimeter}
+            }
+            function CalculateAreaandPerimeter(area,perimeter){
+                return 
+            }
+            function areaandperimeter() {
+    
+                let APlen = parseFloat(document.getElementById("len").value);
+                let APbreadth = parseFloat(document.getElementById("bre").value);
+                let obj = { len: APlen, breadth: APbreadth };
+                let result = rectangle(obj);
+                let AP = document.getElementById("a/p-ans");
+                AP.innerHTML = `Area: ${result.area}, Perimeter: ${result.perimeter}`;
+            }
+        </script>
+
+    </head>
+    <body>
+        <label for="len">length</label>
+        <input type="text" id="len" placeholder="enter length"><br>
+        <label for="breadth">breadth</label>
+        <input type="text" id="bre" placeholder="enter breadth"><br>
+        <button id="area" onclick="area()">area</button>
+        <!-- <span id="area-ans"></span> -->
+        <button id="peri" onclick="perimeter()">perimeter</button>
+        <!-- <span id="peri-ans"></span><br> -->
+        <button id="a/p" onclick="areaandperimeter()">area and perimeter</button>
+        <span id="ans">Result :</span>
+        
+
+
+    </body>
+</html>

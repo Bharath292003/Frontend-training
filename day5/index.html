@@ -1,0 +1,57 @@
+<html>
+    <head>
+      
+    </head>
+    <body>
+        <script>
+            let products = [
+                {id:1,ProductName:"laptop",price: 40000},
+                {id:2,ProductName:"watch",price: 700},
+                {id:3,ProductName:"pen",price: 10}
+
+            ]
+            function addProduct(product){ 
+                if(products.find(pro => pro.id == product.id)){
+                    return false;
+                }else{
+                    products.push(product);
+                    return true;
+                }
+            }
+            function ViewProducts(products){
+                return products;
+
+            }
+            function UpdateProduct(NewProduct)
+            {
+                let UpdateProduct = products.find(pro => pro.id == NewProduct.id );
+                if(UpdateProduct){
+                    UpdateProduct.ProductName = NewProduct.ProductName;
+                    UpdateProduct.price = NewProduct.price;
+                    return true;
+                }else{
+                     return false;
+                    
+                }
+
+            }
+            function ApplyDiscount(Percentage){
+ 
+                let productnew = products.map(p => {
+                let updatedProduct = {...p};
+                updatedProduct.price = (p.price*Percentage)/100;
+                return updatedProduct;
+            });
+
+               return productnew;
+            }
+            
+            console.log("updated product", UpdateProduct({id: 2, ProductName: "book", price: 20}));
+            console.log("addProduct", addProduct({id: 4, ProductName: "bottle", price: 30}));
+            console.log("view products", ViewProducts(products));
+            console.log("Applied discount", ApplyDiscount(2))
+            
+
+        </script>
+    </body>
+</html>

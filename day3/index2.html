@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            function rectangle(obj){
+                let perimeter = 2*(obj.len + obj.breadth);
+                let area = obj.len*obj.breadth
+                return {area,perimeter}
+            }
+            function areaandperimeter() {
+    
+                let APlen = parseFloat(document.getElementById("len").value);
+                let APbreadth = parseFloat(document.getElementById("bre").value);
+                let CheckArea = document.getElementById("check-area");
+                let CheckPerimeter = document.getElementById("check-perimeter");
+                let obj = { len: APlen, breadth: APbreadth };
+                let result = rectangle(obj);
+                let AP = document.getElementById("a/p-ans");
+                if(CheckArea.checked == true && CheckPerimeter.checked == true){
+                    AP.innerHTML = `Area: ${result.area}, Perimeter: ${result.perimeter}`;
+
+                }else if(CheckArea.checked == true){
+                    AP.innerHTML = `Area: ${result.area}`;
+                }else if(CheckPerimeter.checked==true){
+                    AP.innerHTML = ` Perimeter: ${result.perimeter}`;
+                }else{
+                    let message =  "please select atleast one";
+                    AP.innerHTML = message
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <label for="len">length</label>
+        <input type="text" id="len" placeholder="enter length"><br>
+        <label for="breadth">breadth</label>
+        <input type="text" id="bre" placeholder="enter breadth"><br>
+        <label for="">area</label>
+        <input type="checkbox" id="check-area" value="area">
+        <label for="">perimeter</label>
+        <input type="checkbox" id="check-perimeter" value="perimeter"><br>
+        <button id="a/p" onclick="areaandperimeter()">area and perimeter</button>
+        <span id="a/p-ans"></span>
+        
+
+
+    </body>
+</html>

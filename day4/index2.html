@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script>
+            function freak(){
+                let x = document.getElementById("multiples").value;
+                let btn = document.getElementById("btn");
+                let dropdown = document.getElementById("dropdown");
+                console.log("abc",x);
+                if(x == 0){
+                    btn.disabled = true;
+                    dropdown.disabled = true;
+                    
+                }else{
+                    btn.disabled =false;
+                    dropdown.disabled = false;  
+                    console.log("hello");
+                }
+                console.log("check disabled");
+
+
+            }
+        
+
+            function CalculateResult(input,sel){
+                let result = [];
+                for(i = 1;i<=input;i++){
+                    let ans = sel*i;
+                    result.push(`${sel}*${i}=${ans}`);
+                }
+                return result;
+
+            }
+            function result(){
+                let input = document.getElementById("multiples").value;
+                let dropdown = document.getElementById("dropdown");
+                let result = document.getElementById("result");
+                let selectedValue = dropdown.value;
+
+                let output = CalculateResult(input,selectedValue);
+                result.innerHTML = output;
+
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <input type="text" id="multiples" placeholder="Enter number of multiples" onchange="freak()">
+        <select name="" id="dropdown">
+            <option id="2" >2</option>
+            <option id="3" >3</option>
+            <option id="4" >4</option>
+        </select><br>
+        <button id="btn" onclick="result()">result</button>
+        <span id="result"></span>
+
+    </body>
+</html>

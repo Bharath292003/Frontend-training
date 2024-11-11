@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area and Perimeter Calculator with Spinner and Slider</title>
+    <script>
+        function rectangle(obj) {
+            let perimeter = 2 * (obj.len + obj.breadth);
+            let area = obj.len * obj.breadth;
+            return { area, perimeter };
+        }
+
+        function areaandperimeter() {
+            
+            let APlen = parseFloat(document.getElementById("len-spinner").value);
+            let APbreadth = parseFloat(document.getElementById("bre-slider").value);
+
+            
+            let CheckArea = document.getElementById("check-area");
+            let CheckPerimeter = document.getElementById("check-perimeter");
+            
+            
+            let obj = { len: APlen, breadth: APbreadth };
+            let result = rectangle(obj);
+
+            let AP = document.getElementById("a/p-ans");
+            if (CheckArea.checked && CheckPerimeter.checked) {
+                AP.innerHTML = `Area: ${result.area}, Perimeter: ${result.perimeter}`;
+            } else if (CheckArea.checked) {
+                AP.innerHTML = `Area: ${result.area}`;
+            } else if (CheckPerimeter.checked) {
+                AP.innerHTML = `Perimeter: ${result.perimeter}`;
+            } else {
+                AP.innerHTML = "Please select at least one option";
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="len-spinner">Length</label>
+    <input type="number" id="len-spinner" min="1" max="100" value="50">
+    <br>
+    
+    <label for="bre-slider">Breadth</label>
+    <input type="range" id="bre-slider" min="1" max="100" value="50" oninput="document.getElementById('bre-value').innerText = this.value">
+    <span id="bre-value">50</span>
+    <br>
+
+    <label for="check-area">Area</label>
+    <input type="checkbox" id="check-area" value="area">
+    <label for="check-perimeter">Perimeter</label>
+    <input type="checkbox" id="check-perimeter" value="perimeter">
+    <br>
+    
+    <button id="a/p" onclick="areaandperimeter()">Calculate Area and Perimeter</button>
+    <span id="a/p-ans"></span>
+</body>
+</html>
