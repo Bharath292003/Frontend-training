@@ -24,11 +24,14 @@
 
             <h3>Update Product Price</h3>
             <div id="updateProductForm">
+                <label for="updateProductId">Product Id:</label>
+                <input type="text" id="updateProductId" required>
+
                 <label for="updateProductId">Product Name:</label>
-                <input type="text" id="updateProductId" name="updateProductId" required>
+                <input type="text" id="updateProductName" required>
     
                 <label for="updateProductPrice">New Price:</label>
-                <input type="number" id="updateProductPrice" name="updateProductPrice" required>
+                <input type="number" id="updateProductPrice" required>
     
                 <button id="btn-update">Update Price</button>
             </div>
@@ -36,7 +39,7 @@
             <h3>Apply Discount to All Products</h3>
             <div>
                 <label for="discount">Discount Percentage:</label>
-                <input type="number" id="discount" name="discount" required>
+                <input type="number" id="discount" required>
     
                 <button id="btn-discount">Apply Discount</button>
             </div>
