@@ -22,8 +22,7 @@
                 return products;
 
             }
-            function UpdateProduct(NewProduct)
-            {
+            function UpdateProduct(NewProduct) {
                 let UpdateProduct = products.find(pro => pro.id == NewProduct.id );
                 if(UpdateProduct){
                     UpdateProduct.ProductName = NewProduct.ProductName;

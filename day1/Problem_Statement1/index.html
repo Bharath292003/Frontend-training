@@ -9,47 +9,44 @@
     <div>
         <h2>Product Management System</h2>
             <h3>Add New Product</h3>
-            <form id="addProductForm">
+            <div id="addProductForm">
                 <label for="productId">Product ID:</label>
-                <input type="text" id="productId" name="productId" required><br><br>
+                <input type="text" id="productId" required><br><br>
     
                 <label for="productName">Product Name:</label>
-                <input type="text" id="productName" name="productName" required><br><br>
+                <input type="text" id="productName"  required><br><br>
     
                 <label for="productPrice">Product Price:</label>
-                <input type="number" id="productPrice" name="productPrice" required><br><br>
+                <input type="number" id="productPrice"  required><br><br>
     
-                <button type="submit">Add Product</button>
-            </form>
-
-        <h2>List of Products</h2>
-        <div class="products">
-            <ol>
-                <li id="bag">bag - (details: color:black,price:500 INR)</li>
-                <li id="pen">pen - (details: color:red,price: 40 INR)</li>
-                <li id="charger ">charger - (details: color: white,price: 1000 INR)</li>
-                <li id="laptop">laptop - (details: color: black, price: 40k INR)</li>
-            </ol>
-        </div>
+                <button id="btn-add">Add Product</button>
+            </div>
 
             <h3>Update Product Price</h3>
-            <form id="updateProductForm">
-                <label for="updateProductId">Product ID:</label>
+            <div id="updateProductForm">
+                <label for="updateProductId">Product Name:</label>
                 <input type="text" id="updateProductId" name="updateProductId" required>
     
                 <label for="updateProductPrice">New Price:</label>
                 <input type="number" id="updateProductPrice" name="updateProductPrice" required>
     
-                <button type="submit">Update Price</button>
-            </form>
+                <button id="btn-update">Update Price</button>
+            </div>
+
             <h3>Apply Discount to All Products</h3>
-            <form id="applyDiscount">
+            <div>
                 <label for="discount">Discount Percentage:</label>
                 <input type="number" id="discount" name="discount" required>
     
-                <button type="submit">Apply Discount</button>
-            </form>
+                <button id="btn-discount">Apply Discount</button>
+            </div>
+            <h2>List of Products</h2>
+            <div class="products">
+                <button id="btn-view">View Products</button>
+                <ul id="list-products"></ul>
+            </div>
 
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

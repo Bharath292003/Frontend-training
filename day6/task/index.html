@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js"></script>
+</head>
+<body>
+    <h1>Products Inventory Controller</h1>
+    <section>
+        <h2>Search Products</h2>
+        <label for="">Criteria -</label>
+        <input type="text" id="Criteria" name="criteria" placeholder="Enter Criteria"><br>
+        <label for="">Category:</label>
+        <input type="radio"  name="criteria" id="category"><br>
+        <label for="">Price:</label>
+        <input type="radio"  name="criteria" id="price"><br>
+        <label for="">Name:</label>
+        <input type="radio" name="criteria" id="name"><br>
+        <label for="">Quantiy:</label>
+        <input type="radio" name="criteria" id="quantity"><br><br>
+        <button id="btn1">Search</button><br>
+    
+
+    </section><br><br>
+    <section>
+        <h2>Sort Products</h2>
+        <select name="" id="dropdown">
+            <option value="">--select a type--</option>
+            <option value="Price">Price</option>
+            <option value="dataAdded">Data added</option>
+            <option value="quantity">Quantity</option>
+        </select><br><br>
+        <button id="btn2">Sort</button><br>
+        <ol id="result1"></ol>
+        <span id="result2"></span>
+
+    </section>
+
+
+
+   
+</body>
+</html>

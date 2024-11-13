@@ -4,7 +4,8 @@
             function Getlenbre(){
                 const Alen = document.getElementById("len").value;
                 const Abreadth = document.getElementById("bre").value;
-                return {length: Alen.value, breadth: breadth.value};
+                console.log({length: Alen, breadth: Abreadth});
+                return {length: Alen, breadth: Abreadth};
             }
             function SetDisplay(result){
                 let output = document.getElementById("ans");
@@ -24,27 +25,23 @@
                 return 2*(parseInt(l) + parseInt(b));
             }
             function perimeter(){
-                let Plen = document.getElementById("len").value;
-                let Pbreadth = document.getElementById("bre").value;
-                let perimeter = document.getElementById("peri-ans");
-                perimeter.innerHTML = CalculatePerimeter(Plen,Pbreadth);
+                const rect = Getlenbre();
+                const peri = CalculatePerimeter(rect.length,rect.breadth);
+                let result = "perimeter is" + peri;
+                SetDisplay(result);
             }
             function rectangle(obj){
                 let perimeter = 2*(obj.len + obj.breadth);
-                let area = obj.len*obj.breadth
+                let area = obj.len*obj.breadth;
                 return {area,perimeter}
             }
-            function CalculateAreaandPerimeter(area,perimeter){
-                return 
-            }
+
             function areaandperimeter() {
-    
-                let APlen = parseFloat(document.getElementById("len").value);
-                let APbreadth = parseFloat(document.getElementById("bre").value);
-                let obj = { len: APlen, breadth: APbreadth };
-                let result = rectangle(obj);
-                let AP = document.getElementById("a/p-ans");
-                AP.innerHTML = `Area: ${result.area}, Perimeter: ${result.perimeter}`;
+                const rect = Getlenbre(); 
+                const area = CalculateArea(rect.length,rect.breadth);
+                const peri = CalculatePerimeter(rect.length,rect.breadth);
+                const result = `Area is ${area} and Perimeter is ${peri}`;
+                SetDisplay(result);
             }
         </script>
 
