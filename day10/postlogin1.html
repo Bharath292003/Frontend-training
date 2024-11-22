@@ -65,7 +65,32 @@
             font-size: 16px; /* Font size for button */
             margin-left: 10px; /* Margin to separate from input */
         }
-
+        .container{
+            /* display:none; */
+           width: 300px; 
+           visibility: hidden;
+           margin: 0 auto; 
+           padding: 20px; 
+           border: 1px solid #ccc; 
+           border-radius: 10px; 
+        }
+        h2{
+            margin-left: 3rem;
+        }
+        .number { width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        .btn-add { background-color: #2c3e50;padding: 7px; width: 5rem;border-radius: 5px;margin-left: 7rem; color: white; border: none; }
+        .btn-add:hover { background-color: #2c3e50; }
+        .btn-show {
+            margin-top: 1rem;
+            width: 8rem;
+            background-color:#2c3e50;
+            color: white;
+             padding: 10px; 
+             margin-bottom: 10px; 
+             border-radius: 5px; 
+             border: 1px solid #ccc; 
+        }
+        .error { color: red; }
         .search-box input[type="button"]:hover {
             background-color: #34495e; /* Darker background on hover */
         }
@@ -76,6 +101,7 @@
         .results {
             background-color: white; /* White background for results */
             border: 1px solid #ccc; /* Light gray border */
+            width: 80%;
             border-radius: 5px; /* Rounded corners */
             padding: 20px; /* Padding inside results box */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -148,7 +174,15 @@
             <!-- Search results will be displayed here -->
         </div>
         <div >
-            <a class="content2" href="add.html">Add Numbers</a>
+            <button class="btn-show" onclick="AddNumbers()">Add Numbers</button>
+        </div>
+        <div class="container" style="visibility: hidden;">
+            <h2>Add Two Numbers</h2>
+            <p id="loginError" class="error"></p>
+            <input type="number" class="number" id="num1" placeholder="Enter first number">
+            <input type="number" class="number" id="num2" placeholder="Enter second number">
+            <button class="btn-add" onclick="displayResult()">Add</button>
+            <p id="result"></p>
         </div>
     </div>
     
@@ -156,5 +190,30 @@
     <footer>
         © 2024 Manufacturing Company. All rights reserved.
     </footer>
+    <script>
+         function displayResult() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultElement.innerText = "Please enter valid numbers.";
+            } else {
+                const sum = num1 + num2;
+                resultElement.innerText = "Result: " + sum;
+            }
+        }
+       function AddNumbers() {
+       let container = document.querySelector(".container");
+       console.log("hi",container.style.visibility); // Select the container
+        if (container.style.visibility === "hidden" || container.style.visibility === " ") {
+            
+            container.style.visibility = "visible"; // Show the container
+        } else{
+            container.style.visibility ="hidden";
+        }
+} 
+
+    </script>
 </body>
 </html>
