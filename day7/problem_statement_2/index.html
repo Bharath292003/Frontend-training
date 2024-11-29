@@ -3,30 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Order Management System</title>
 </head>
 <body>
-    <h1>Add Order</h1>
-    <section>
-        <div>
-            <label for="">Customer Name: </label>
-            <input type="text" id="customerName" placeholder="enter name"><br><br>
-            <label for="">Customer Address: </label>
-            <input type="text" id="customerAddress" placeholder="enter address"><br><br>
-            <span id="error-message" style="color: red;"></span><br><br>
-            <select  id="dropdown">
-                <option value="">--select product--</option>
-            </select><br>
-            <h4>Total amount: <span id="total-amt">0</span></h4><br>
-            <button type="submit" id="addProduct">Add product</button>
-            <button type="submit" id="orderProduct">order</button><br>
-            <span id="result"></span>
-            <ul id="productList"></ul><br>
-            <h4>order list</h4><br>
-            <ul id="orderList"></ul>
+    <div class="navbar">
+        <a href="/day12/Dashboard/index.html" class="back-arrow">&#8592; Back</a>
+        <h2><img class="img" src="/day12/Dashboard/assets/annalect-logo.png" alt=""></LINk>ORDER MANAGEMENT SYSTEM</h2>
+    </div>
 
+    <div class="container">
+        <div class="section left-section">
+            <h3>ADD ORDER</h3>
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" placeholder="Enter name"><br><br>
+
+            <label for="customerAddress">Customer Address:</label>
+            <input type="text" id="customerAddress" placeholder="Enter address"><br><br>
+
+            <span id="error-message" style="color: red;"></span><br><br>
+            <label for="dropdown">Select Product:</label>
+            <select id="dropdown">
+                <option value="">--Select Product--</option>
+            </select><br>
+
+            <h4>Total Amount: <span id="total-amt">0</span></h4><br>
+            <button id="addProduct">Add Product</button>
+            <button id="orderProduct">Order</button><br>
+            <ul id="productList"></ul>
         </div>
-    </section>
+
+        <div class="section right-section">
+            <h3>ORDER LIST</h3>
+            <ul id="orderList"></ul>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 G Balaji Bharath (OMG Graduate Trainee). All rights reserved.
+    </footer>
+
     <script src="app.js"></script>
 </body>
 </html>

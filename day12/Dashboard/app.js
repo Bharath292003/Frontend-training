@@ -17,12 +17,12 @@ closeBtn.addEventListener('click', () => {
 
 
 productBtn.addEventListener('click', () => {
-    navigateTo('./day1/Problem_Statement1/index.html'); t
+    navigateTo('/day1/Problem_Statement1/index.html'); t
 });
 
 
 orderBtn.addEventListener('click', () => {
-    navigateTo('./day7/Problem_Statement2/index.html'); 
+    navigateTo('/day7/problem_statement_2/index.html'); 
 });
 
 function navigateTo(path) {

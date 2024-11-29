@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function Getlenbre() {
+            const Alen = parseFloat($('#len').val());
+            const Abreadth = parseFloat($('#bre').val());
+            return { length: Alen, breadth: Abreadth };
+
+        }
+        function SetDisplay(result) {
+            $('#ans').text()
+        }
+
+    </script>
+</head>
+
+<body>
+    <label for="len">length</label>
+    <input type="text" id="len" placeholder="enter length"><br>
+    <label for="breadth">breadth</label>
+    <input type="text" id="bre" placeholder="enter breadth"><br>
+    <button id="area" onclick="area()">area</button>
+    <!-- <span id="area-ans"></span> -->
+    <button id="peri" onclick="perimeter()">perimeter</button>
+    <!-- <span id="peri-ans"></span><br> -->
+    <button id="a/p" onclick="areaandperimeter()">area and perimeter</button>
+    <span id="ans">Result :</span>
+
+</body>
+
+</html>

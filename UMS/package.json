@@ -1,0 +1,19 @@
+{
+  "name": "ums",
+  "version": "1.0.0",
+  "description": "User Management System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "prod": "vite preview"
+  },
+  "author": "Bharath",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "highcharts": "^11.4.8"
+  }
+}
