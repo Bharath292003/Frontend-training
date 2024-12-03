@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="searchresults.css">
+    <title>Search Results</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar">
+                <div class="title">Employee Management System</div>
+                <button class="logout-button" onclick="SearchResultLogout()">Logout</button>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h1>Search Results</h1>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Date of Joining</th>
+                        <th>Grade</th>
+                        <th>View</th>
+                        <th>Modify</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>500943</td>
+                        <td>Vijay</td>
+                        <td>V</td>
+                        <td>11/11/1111</td>
+                        <td>22/22/2222</td>
+                        <td>M3</td>
+                        <td><a href="#">View</a></td>
+                        <td><a href="#"
+                                onclick="openModifyModal('500943', 'Vijay', 'V', '11/11/1111', '22/22/2222', 'M3')">Modify</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>500000</td>
+                        <td>XYZ</td>
+                        <td>Abc</td>
+                        <td>22/22/2222</td>
+                        <td>33/33/3333</td>
+                        <td>M2</td>
+                        <td><a href="#">View</a></td>
+                        <td><a href="#"
+                                onclick="openModifyModal('500000', 'XYZ', 'Abc', '22/22/2222', '33/33/3333', 'M1')">Modify</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>500972</td>
+                        <td>Bharath</td>
+                        <td>G</td>
+                        <td>44/44/4444</td>
+                        <td>55/55/5555</td>
+                        <td>M3</td>
+                        <td><a href="#">View</a></td>
+                        <td><a href="#"
+                                onclick="openModifyModal('500972', 'Bharath', 'G', '44/44/4444', '55/55/5555', 'M2')">Modify</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>500949</td>
+                        <td>Vasu</td>
+                        <td>M</td>
+                        <td>66/66/6666</td>
+                        <td>77/77/7777</td>
+                        <td>M2</td>
+                        <td><a href="#">View</a></td>
+                        <td><a href="#"
+                                onclick="openModifyModal('500949', 'vasu', 'M', '66/66/6666', '77/77/7777', 'M2')">Modify</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="export-section">
+                <button class="export-button">Export to CSV</button>
+            </div>
+            <div class="back-section">
+                <a href="search.html" class="back-link">Return to Main Menu</a>
+            </div>
+        </div>
+
+        <!-- Modify Employee Modal -->
+        <div id="modifyModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModifyModal()">&times;</span>
+                <h2 class="modify-h2">Modify Employee Record</h2>
+                <form>
+                    <table class="modify-table">
+                        <tr>
+                            <td>Employee ID</td>
+                            <td><input type="text" id="employeeId" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>First Name <span class="required">*</span></td>
+                            <td><input type="text" id="firstName" required></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name <span class="required">*</span></td>
+                            <td><input type="text" id="lastName" required></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth <span class="required">*</span></td>
+                            <td><input type="date" id="dob" required></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Joining <span class="required">*</span></td>
+                            <td><input type="date" id="doj" required></td>
+                        </tr>
+                        <tr>
+                            <td>Grade</td>
+                            <td>
+                                <select id="grade">
+                                    <option value="M1">M1</option>
+                                    <option value="M2">M2</option>
+                                    <option value="M3">M3</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit" class="save-button">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Employee Case Study | All rights reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        function openModifyModal(employeeId, firstName, lastName, dob, doj, grade) {
+            // Populate modal fields with selected employee data
+            document.getElementById('employeeId').value = employeeId;
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('lastName').value = lastName;
+            document.getElementById('dob').value = dob;
+            document.getElementById('doj').value = doj;
+            document.getElementById('grade').value = grade;
+
+            // Show modal
+            document.getElementById('modifyModal').style.display = 'block';
+        }
+
+        function closeModifyModal() {
+            // Hide modal
+            document.getElementById('modifyModal').style.display = 'none';
+        }
+        function SearchResultLogout() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+
+</html>

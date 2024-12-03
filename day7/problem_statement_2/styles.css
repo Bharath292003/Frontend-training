@@ -1,5 +1,5 @@
 body {
-    font-family:  sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f3f8fc;
@@ -31,7 +31,8 @@ body {
     left: 20px;
     top: 40%;
 }
-.img{
+
+.img {
     height: 40px;
     width: 40px;
     margin-right: 5px;
@@ -74,7 +75,8 @@ label {
     font-weight: bold;
 }
 
-input, select {
+input,
+select {
     width: 50%;
     padding: 8px;
     margin-bottom: 20px;
@@ -83,7 +85,7 @@ input, select {
 }
 
 button {
-    background-color:#2fc3c7;
+    background-color: #2fc3c7;
     color: black;
     padding: 10px 15px;
     border: none;
@@ -94,6 +96,66 @@ button {
 button:hover {
     background-color: #3e6268;
 }
+
+#orderList {
+    list-style: none;
+    /* Remove default bullet points */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+}
+
+#orderList li {
+    display: flex;
+    /* Use Flexbox for alignment */
+    justify-content: space-between;
+    /* Space between order text and trash icon */
+    align-items: center;
+    /* Center items vertically */
+    padding: 10px;
+    /* Add spacing inside list items */
+    border-bottom: 1px solid #ddd;
+    /* Add a dividing line between orders */
+    font-size: 16px;
+    /* Adjust font size for readability */
+}
+
+/* Hover effect for list items */
+#orderList li:hover {
+    background-color: #f9f9f9;
+    /* Light background on hover */
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Trash Icon Specific Styles */
+button.delete-order {
+    background: none;
+    /* Remove button background */
+    border: none;
+    /* Remove border */
+    padding: 0;
+    /* Remove padding */
+    cursor: pointer;
+    /* Pointer cursor for UX */
+}
+
+button.delete-order i {
+    font-size: 20px;
+    /* Trash icon size */
+    color: red;
+    /* Trash icon color */
+}
+
+button.delete-order:hover i {
+    color: darkred;
+    /* Darker red on hover */
+    transform: scale(1.2);
+    /* Slightly enlarge on hover */
+    transition: all 0.2s ease-in-out;
+    /* Smooth hover effect */
+}
+
 
 footer {
     background-color: #2fc3c7;
