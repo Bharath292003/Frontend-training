@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Product Management System</title>
 </head>
+
 <body>
     <div class="navbar">
         <a href="/day12/Dashboard/index.html" class="back-arrow">&#8592; Back</a>
-        <h2><span><img class="img" src="/day12/Dashboard/assets/annalect-logo.png" alt=""></span>PRODUCT MANAGEMENT SYSTEM</h2>
+        <h2><span><img class="img" src="/day12/Dashboard/assets/annalect-logo.png" alt=""></span>PRODUCT MANAGEMENT
+            SYSTEM</h2>
     </div>
 
     <div class="container">
@@ -55,9 +58,20 @@
 
         <div class="section right-section">
             <h3>List of Products</h3>
-            <button id="btn-view">View Products</button>
-            <ul id="list-products"></ul>
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
+
     </div>
 
     <footer>
@@ -66,4 +80,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>

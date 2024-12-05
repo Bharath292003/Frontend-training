@@ -41,7 +41,7 @@ body {
 }
 
 
-.img{
+.img {
     height: 40px;
     width: 40px;
     margin-right: 5px;
@@ -69,6 +69,32 @@ body {
 }
 
 .right-section {
+    background-color: #f4f7fc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #2fc3c7;
+    color: black;
+}
+
+th,
+td {
+    border: 1px solid #b0e0e6;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
     background-color: #f4f7fc;
 }
 

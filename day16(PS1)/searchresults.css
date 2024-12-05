@@ -3,6 +3,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     height: 100vh;
+    background-image: url(assets/office.jpg);
+    background-size: cover;
 }
 
 header {
@@ -16,11 +18,70 @@ header {
     align-items: center;
 }
 
+nav.navbar .icon {
+    font-size: 34px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    color: white;
+}
+
 .title {
     color: white;
     font-size: 24px;
     text-align: center;
     flex: 1;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #454343;
+    color: white;
+    transition: left 0.6s ease-in-out;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid white;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+}
+
+.sidebar-header .close-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    border-bottom: 1px solid white;
+}
+
+.sidebar-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    background-color: #bcb3a5;
 }
 
 .logout-button {
@@ -51,7 +112,6 @@ header {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -66,41 +126,44 @@ h1 {
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 16px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .results-table th,
 .results-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
+    border: 1px solid #ddd;
 }
 
 .results-table th {
-    background-color: #454343;
+    background-color: #333;
     color: white;
     font-weight: bold;
 }
 
 .results-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
 .results-table tr:hover {
-    background-color: #ddd;
+    background-color: #f1f1f1;
 }
 
-.results-table td {
-    color: #333;
-}
-
-.results-table a {
-    color: blue;
+.results-table td a {
+    color: #007BFF;
     text-decoration: none;
+    font-size: 18px;
 }
 
-.results-table a:hover {
+.results-table td a:hover {
+    color: #0056b3;
     text-decoration: underline;
 }
+
+
 
 .export-section {
     text-align: center;
@@ -141,79 +204,192 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
-    background: white;
-    padding: 30px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    width: 400px;
-
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    /* background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; */
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
 }
 
 .modify-h2 {
     text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.modify-table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease-in-out;
+    background: #f9f9f9;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background: white;
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
+.save-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.save-button:hover {
+    background-color: #535050;
+    transform: scale(1.02);
 }
 
 .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    color: #333;
+    color: #aaa;
+    transition: color 0.3s;
 }
 
 .close-button:hover {
-    color: red;
+    color: #333;
 }
 
-.modify-table {
+.toastify {
+    font-size: 16px !important;
+    padding: 20px !important;
+    width: 350px !important;
+    border-radius: 10px !important;
+}
+
+.toastify-top-down {
+    top: 30px !important;
+}
+
+.log-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.log-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.log-modal-content h2 {
+    font-size: 18px;
+    color: #333;
     margin-bottom: 20px;
 }
 
-.modify-table td {
-    padding: 8px;
-    border: none;
+.log-modal-buttons {
+    display: flex;
+    justify-content: space-around;
 }
 
-.required {
-    color: red;
-}
-
-.save-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #454343;
-    color: white;
+.log-yes-button,
+.log-no-button {
+    padding: 10px 20px;
     border: none;
-    font-size: 16px;
-    cursor: pointer;
     border-radius: 5px;
-    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.save-button:hover {
-    background-color: #333;
+.log-yes-button {
+    background-color: #f44336;
+    color: white;
 }
+
+.log-yes-button:hover {
+    background-color: #d32f2f;
+}
+
+.log-no-button {
+    background-color: #ccc;
+    color: black;
+}
+
+.log-no-button:hover {
+    background-color: #b0b0b0;
+}
+
 
 footer {
     background-color: #454343;
     color: white;
     text-align: center;
-    padding: 10px 0;
     margin-top: auto;
 }

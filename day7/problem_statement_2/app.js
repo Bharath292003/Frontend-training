@@ -21,20 +21,26 @@ function displayProductsDropdown() {
     });
 }
 
-function DisplayAddedProducts() {
-    const productslist = document.getElementById('productList');
-    productslist.textContent = "";
+function DisplayCartProducts() {
+    const cartList = document.getElementById('cartList');
+    cartList.textContent = "";
 
-    DisplayProductsArr.forEach(product => {
+    DisplayProductsArr.forEach((product, index) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${product.name} - ${product.price}`;
-        productslist.appendChild(listItem);
+        listItem.innerHTML = `
+            ${product.name} - $${product.price} 
+            <button class="increase-qty" data-index="${index}">+</button>
+        `;
+        cartList.appendChild(listItem);
     });
-}
-
-function getProductDetails() {
-    const product = document.getElementById('dropdown').value;
-    return ProductArray.find(p => p.name === product);
+    document.querySelectorAll('.increase-qty').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productIndex = e.target.getAttribute('data-index');
+            DisplayProductsArr[productIndex].price += ProductArray.find(p => p.name === DisplayProductsArr[productIndex].name).price;
+            currentTotalAmount();
+            DisplayCartProducts();
+        });
+    });
 }
 
 function currentTotalAmount() {
@@ -50,44 +56,42 @@ function GenerateId() {
     return ++id;
 }
 
-function formatProducts(products) {
-    return products
-        .map(product => `${product.price} ${product.name} `)
-        .join(', ');
-}
-
 function displayOrders(Orders) {
     const orderslist = document.getElementById('orderList');
-    orderslist.textContent = ""; // Clear the list before redisplaying
+    orderslist.textContent = "";
 
     Orders.forEach(order => {
         const listItem = document.createElement('li');
         listItem.innerHTML = `
-            ${order.id}. ${order.name} ordered ${formatProducts(order.listOfProducts)}
-            <button class="delete-order" value="${order.id}">
+             ${order.name} ordered ${order.listOfProducts.map(product => `${product.price}$ ${product.name}`).join(', ')}
+            <button class="delete-order" style="padding:0.4rem" value="${order.id}">
                 <i class="fa fa-trash"></i>
             </button>
         `;
         orderslist.appendChild(listItem);
     });
 
-    // Event Delegation for Deleting Orders
     document.getElementById('orderList').addEventListener('click', (e) => {
         if (e.target.tagName === 'I') {
-            const button = e.target.parentElement; // Get the parent button
-            const orderId = parseInt(button.value); // Access the value attribute
+            const button = e.target.parentElement;
+            const orderId = parseInt(button.value);
             deleteOrder(orderId);
         }
     });
+    orderslist.querySelectorAll('.delete-order').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const orderId = parseInt(e.target.value || e.target.parentElement.value);
+            deleteOrder(orderId);
+        });
+    });
 }
 
-
 function deleteOrder(orderId) {
-    // Find the index of the order with the matching ID
+    console.log('hi');
     const orderIndex = Orders.findIndex(order => order.id === orderId);
     if (orderIndex !== -1) {
-        Orders.splice(orderIndex, 1); // Remove the order
-        displayOrders(Orders); // Refresh the order list
+        Orders.splice(orderIndex, 1);
+        displayOrders(Orders);
     }
 }
 
@@ -104,9 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         errorMessage.textContent = "";
-        DisplayProductsArr.push(getProductDetails());
-        DisplayAddedProducts();
-        currentTotalAmount();
+
+        const selectedProduct = ProductArray.find(p => p.name === document.getElementById('dropdown').value);
+        if (selectedProduct) {
+            DisplayProductsArr.push({ ...selectedProduct });
+            DisplayCartProducts();
+            currentTotalAmount();
+        }
     });
 
     document.getElementById("orderProduct").addEventListener("click", () => {
@@ -123,5 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         displayOrders(Orders);
         DisplayProductsArr = [];
+        DisplayCartProducts();
+        currentTotalAmount();
     });
 });

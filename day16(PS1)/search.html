@@ -5,18 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <title>Employee Case Study</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <div class="title">Employee Management System</div>
+            <div class="icon" id="menu-btn">☰</div>
+            <div class="title">Employee Data Management System</div>
             <button class="logout-button" onclick="SearchLogout()">Logout</button>
+            </div>
         </nav>
     </header>
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="modal-buttons">
+                <button class="yes-button" onclick="confirmLogout()">Yes</button>
+                <button class="no-button" onclick="closeLogoutModal()">No</button>
+            </div>
+        </div>
+    </div>
+
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="close-btn" id="close-btn">&times;</span>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#">Search Options</a></li>
+            <li><a href="SearchResults.html">Search Results</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </aside>
     <div class="container">
-        <h1>Search Options</h1>
+        <h1>
+            Search Options
+            <button class="showAll" onclick="showAllData()">Show All</button>
+        </h1>
         <form class="employee-form" id="searchForm">
             <div class="form-group">
                 <label for="employee-id">Employee ID</label>
@@ -47,21 +77,14 @@
                     <option value="M3">M3</option>
                 </select>
             </div>
+            <span style="color: red; font-size: small;" id="field"></span>
             <button type="button" class="submit-button" onclick="redirectToResults()">Search</button>
         </form>
     </div>
     <footer>
         <p>&copy; 2024 Employee Case Study | All rights reserved</p>
     </footer>
-
-    <script>
-        function SearchLogout() {
-            window.location.href = "login.html";
-        }
-        function redirectToResults() {
-            window.location.href = "SearchResults.html";
-        }
-    </script>
+    <script src="search.js"></script>
 </body>
 
 </html>

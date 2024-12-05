@@ -23,18 +23,22 @@
             <input type="text" id="customerName" placeholder="Enter name"><br><br>
 
             <label for="customerAddress">Customer Address:</label>
-            <input type="text" id="customerAddress" placeholder="Enter address"><br><br>
+            <input type="text" id="customerAddress" placeholder="Enter address"><br>
 
-            <span id="error-message" style="color: red;"></span><br><br>
-            <label for="dropdown">Select Product:</label>
+            <span id="error-message" style="color: red;"></span><br>
+            <label class="dropdown-class" for="dropdown">Select Product:</label>
             <select id="dropdown">
                 <option value="">--Select Product--</option>
             </select><br>
 
             <h4>Total Amount: <span id="total-amt">0</span></h4><br>
             <button id="addProduct">Add To Cart</button>
-            <button id="orderProduct">Order</button><br>
-            <ul id="productList"></ul>
+        </div>
+
+        <div class="section middle-section">
+            <h3>CART LIST</h3>
+            <ul id="cartList"></ul>
+            <button class="order-btn" id="orderProduct" style="margin-top: 20px;">Place Order</button>
         </div>
 
         <div class="section right-section">

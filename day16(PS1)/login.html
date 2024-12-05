@@ -5,22 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <title>Employee case study</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Please Login to Continue</h1>
-        <form action="search.html" id="login">
+        <form id="form-id">
+            <h1>Please Login To Continue</h1>
             <label for="Userid">Enter User Id: </label>
-            <input type="text" id="Userid" name="Userid" required><br><br>
+            <input type="text" id="username" name="Userid" required><br><br>
             <label for="Password">Enter Password: </label>
             <input type="text" id="Password" name="Password" required><br><br>
-            <button>Login</button>
-        </form>
+            <button id="login-btn">Login</button>
 
+        </form>
     </div>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let loginButton = document.getElementById("form-id");
+        loginButton.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log(loginButton.username.value);
+            console.log(loginButton.Password.value);
+
+            if (loginButton.username.value === "Admin" && loginButton.Password.value === "admin123") {
+                sessionStorage.setItem("loggedIn", "true");
+                window.location.href = "search.html";
+            } else {
+                Toastify({
+                    text: "Invalid username or password.",
+                    duration: 2000,
+                    gravity: "top",
+                    position: "right",
+                    className: "toastify toastify-top-down",
+                    backgroundColor: "linear-gradient(to right, #dc3545, #c82333)",
+                }).showToast();
+            }
+        })
+    })
+
+</script>
 
 </html>

@@ -6,6 +6,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(assets/office.jpg);
+    background-size: cover;
 }
 
 .container {
@@ -56,4 +58,15 @@ button {
 
 button:hover {
     background-color: #333;
+}
+
+.toastify {
+    font-size: 16px !important;
+    padding: 20px !important;
+    width: 350px !important;
+    border-radius: 10px !important;
+}
+
+.toastify-top-down {
+    top: 30px !important;
 }

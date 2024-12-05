@@ -55,6 +55,46 @@ body {
 .left-section {
     flex: 1;
     margin: 0 auto;
+    position: relative;
+}
+
+#addProduct {
+    position: absolute;
+    bottom: 1rem;
+    left: 10.5rem;
+    width: 30%;
+    font-size: large;
+}
+
+.middle-section {
+    flex: 1;
+    margin: 0 10px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 9px 9px rgba(45, 182, 206, 0.5);
+}
+
+.order-btn {
+    position: absolute;
+    bottom: 1rem;
+    width: 30%;
+    font-size: large;
+    left: 10.5rem;
+}
+
+.middle-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.middle-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .right-section {
@@ -64,7 +104,6 @@ body {
 h3 {
     font-size: 25px;
     color: black;
-    /* margin-bottom: 20px; */
     display: flex;
     justify-content: center;
 }
@@ -97,65 +136,18 @@ button:hover {
     background-color: #3e6268;
 }
 
-#orderList {
-    list-style: none;
-    /* Remove default bullet points */
-    padding: 0;
-    /* Remove padding */
-    margin: 0;
-    /* Remove margin */
-}
-
-#orderList li {
-    display: flex;
-    /* Use Flexbox for alignment */
-    justify-content: space-between;
-    /* Space between order text and trash icon */
-    align-items: center;
-    /* Center items vertically */
-    padding: 10px;
-    /* Add spacing inside list items */
-    border-bottom: 1px solid #ddd;
-    /* Add a dividing line between orders */
-    font-size: 16px;
-    /* Adjust font size for readability */
-}
-
-/* Hover effect for list items */
-#orderList li:hover {
-    background-color: #f9f9f9;
-    /* Light background on hover */
-    transition: background-color 0.2s ease-in-out;
-}
-
-/* Trash Icon Specific Styles */
-button.delete-order {
-    background: none;
-    /* Remove button background */
+.increase-qty {
+    background-color: #2fc3c7;
     border: none;
-    /* Remove border */
-    padding: 0;
-    /* Remove padding */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    /* Pointer cursor for UX */
 }
 
-button.delete-order i {
-    font-size: 20px;
-    /* Trash icon size */
-    color: red;
-    /* Trash icon color */
+.increase-qty:hover {
+    background-color: #3e6268;
 }
-
-button.delete-order:hover i {
-    color: darkred;
-    /* Darker red on hover */
-    transform: scale(1.2);
-    /* Slightly enlarge on hover */
-    transition: all 0.2s ease-in-out;
-    /* Smooth hover effect */
-}
-
 
 footer {
     background-color: #2fc3c7;

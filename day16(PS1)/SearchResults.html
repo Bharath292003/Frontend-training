@@ -4,21 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="searchresults.css">
     <title>Search Results</title>
+    <link rel="stylesheet" href="searchresults.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </head>
 
 <body>
     <div class="wrapper">
         <header>
             <nav class="navbar">
-                <div class="title">Employee Management System</div>
+                <div class="icon" id="menu-btn">☰</div>
+                <div class="title">Employee Data Management System</div>
                 <button class="logout-button" onclick="SearchResultLogout()">Logout</button>
             </nav>
         </header>
+        <div id="logoutModal" class="log-modal">
+            <div class="log-modal-content">
+                <h2>Are you sure you want to logout?</h2>
+                <div class="log-modal-buttons">
+                    <button class="log-yes-button" onclick="ConfirmLogout()">Yes</button>
+                    <button class="log-no-button" onclick="CloseLogoutModal()">No</button>
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <span class="close-btn" id="close-btn">&times;</span>
+            </div>
+            <ul class="sidebar-links">
+                <li><a href="search.html">Search Options</a></li>
+                <li><a href="#">Search Results</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </aside>
 
         <div class="container">
-            <h1>Search Results</h1>
+            <h1>
+                Search Results
+            </h1>
             <table class="results-table">
                 <thead>
                     <tr>
@@ -28,60 +56,10 @@
                         <th>Date of Birth</th>
                         <th>Date of Joining</th>
                         <th>Grade</th>
-                        <th>View</th>
                         <th>Modify</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>500943</td>
-                        <td>Vijay</td>
-                        <td>V</td>
-                        <td>11/11/1111</td>
-                        <td>22/22/2222</td>
-                        <td>M3</td>
-                        <td><a href="#">View</a></td>
-                        <td><a href="#"
-                                onclick="openModifyModal('500943', 'Vijay', 'V', '11/11/1111', '22/22/2222', 'M3')">Modify</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>500000</td>
-                        <td>XYZ</td>
-                        <td>Abc</td>
-                        <td>22/22/2222</td>
-                        <td>33/33/3333</td>
-                        <td>M2</td>
-                        <td><a href="#">View</a></td>
-                        <td><a href="#"
-                                onclick="openModifyModal('500000', 'XYZ', 'Abc', '22/22/2222', '33/33/3333', 'M1')">Modify</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>500972</td>
-                        <td>Bharath</td>
-                        <td>G</td>
-                        <td>44/44/4444</td>
-                        <td>55/55/5555</td>
-                        <td>M3</td>
-                        <td><a href="#">View</a></td>
-                        <td><a href="#"
-                                onclick="openModifyModal('500972', 'Bharath', 'G', '44/44/4444', '55/55/5555', 'M2')">Modify</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>500949</td>
-                        <td>Vasu</td>
-                        <td>M</td>
-                        <td>66/66/6666</td>
-                        <td>77/77/7777</td>
-                        <td>M2</td>
-                        <td><a href="#">View</a></td>
-                        <td><a href="#"
-                                onclick="openModifyModal('500949', 'vasu', 'M', '66/66/6666', '77/77/7777', 'M2')">Modify</a>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
             <div class="export-section">
                 <button class="export-button">Export to CSV</button>
@@ -91,45 +69,42 @@
             </div>
         </div>
 
-        <!-- Modify Employee Modal -->
         <div id="modifyModal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close-button" onclick="closeModifyModal()">&times;</span>
                 <h2 class="modify-h2">Modify Employee Record</h2>
                 <form>
-                    <table class="modify-table">
-                        <tr>
-                            <td>Employee ID</td>
-                            <td><input type="text" id="employeeId" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>First Name <span class="required">*</span></td>
-                            <td><input type="text" id="firstName" required></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name <span class="required">*</span></td>
-                            <td><input type="text" id="lastName" required></td>
-                        </tr>
-                        <tr>
-                            <td>Date of Birth <span class="required">*</span></td>
-                            <td><input type="date" id="dob" required></td>
-                        </tr>
-                        <tr>
-                            <td>Date of Joining <span class="required">*</span></td>
-                            <td><input type="date" id="doj" required></td>
-                        </tr>
-                        <tr>
-                            <td>Grade</td>
-                            <td>
-                                <select id="grade">
-                                    <option value="M1">M1</option>
-                                    <option value="M2">M2</option>
-                                    <option value="M3">M3</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                    <button type="submit" class="save-button">Save</button>
+                    <div class="modify-table-container">
+                        <div class="form-group">
+                            <label for="employeeId">Employee ID</label>
+                            <input type="text" id="employeeId" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doj">Date of Joining <span class="required">*</span></label>
+                            <input type="date" id="doj" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade</label>
+                            <select id="grade">
+                                <option value="M1">M1</option>
+                                <option value="M2">M2</option>
+                                <option value="M3">M3</option>
+                            </select>
+                        </div>
+                        <button type="submit" onclick="save(event)" class="save-button">Save</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -138,29 +113,7 @@
             <p>&copy; 2024 Employee Case Study | All rights reserved</p>
         </footer>
     </div>
-
-    <script>
-        function openModifyModal(employeeId, firstName, lastName, dob, doj, grade) {
-            // Populate modal fields with selected employee data
-            document.getElementById('employeeId').value = employeeId;
-            document.getElementById('firstName').value = firstName;
-            document.getElementById('lastName').value = lastName;
-            document.getElementById('dob').value = dob;
-            document.getElementById('doj').value = doj;
-            document.getElementById('grade').value = grade;
-
-            // Show modal
-            document.getElementById('modifyModal').style.display = 'block';
-        }
-
-        function closeModifyModal() {
-            // Hide modal
-            document.getElementById('modifyModal').style.display = 'none';
-        }
-        function SearchResultLogout() {
-            window.location.href = "login.html";
-        }
-    </script>
+    <script src="searchResults.js"></script>
 </body>
 
 </html>
