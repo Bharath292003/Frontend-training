@@ -178,6 +178,30 @@ select {
     background-color: #333;
 }
 
+.welcome-section {
+    padding: 20px;
+}
+
+.welcome-text {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .modal {
     display: none;
     position: fixed;
